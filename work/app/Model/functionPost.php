@@ -36,7 +36,7 @@ class functionPost extends \MyApp\Model {
   // ツイートの削除
 
   public function deletePosts($number){
-    $stmt=$this->_db->prepare('delete from posts where postNumber=:number');
+    $stmt=$this->_db->prepare('delete post,favorite from posts as post left join favorites as favorite on post.postNumber = favorite.userNumber where post.postNumber=:number');
     $stmt->bindValue(':number',$number);
     return $stmt->execute();
   }

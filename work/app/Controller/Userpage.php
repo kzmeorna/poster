@@ -125,7 +125,6 @@ class Userpage extends \MyApp\Controller{
       
     }else{
       $postNumber=$post->getPostNumber($this->_userProf->userNumber);
-      
       if(!empty($postNumber)){
         for($i=0;$i<count($postNumber);$i++){
           $userNumber=$user->getUserNumber($postNumber[$i]->postNumber);

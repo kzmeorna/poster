@@ -95,7 +95,7 @@ $(function() {
   // プロフィールページのtweet表示fin
 
   // プロフィールページのいいね欄のツイートの表示start
-  // console.log(favedPost);
+  console.log(favedPost);
   if(!(favedPost[0]===0)){
     for(i=favedPost.length-1;i>=0;i--){
       var clone3 =personal.clone(true);

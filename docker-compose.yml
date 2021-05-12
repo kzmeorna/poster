@@ -2,6 +2,18 @@
 
 version: '3.8'
 services:
+  web:
+    build: ./nginx
+    ports: 
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./work:/var/www
+      - ./work/app:/var/www/app
+      - ./work/public:/var/www/public
+    restart:  always
+    depends_on:
+      - php
   db:
     build: ./mysql
     environment:
@@ -11,15 +23,13 @@ services:
       MYSQL_USER: myappuser
       MYSQL_PASSWORD: myapppass
     volumes:
-    - db-data:/var/lib/mysql
+    - ./mysql/db-data:/var/lib/mysql
   php:
-    build: ./php
+    build: .
     depends_on:
     - db
-    ports:
-    - 8081:8000
     volumes:
-    - ./work:/work
+    - ./work:/var/www
 
 volumes:
   db-data:

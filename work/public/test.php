@@ -1,4 +1,4 @@
 <?php
 
 echo __DIR__ . '/../../public/img/';
-var_dump(glob(__DIR__ . '/*'));
+var_dump(glob(__DIR__ . '/../app/*'));

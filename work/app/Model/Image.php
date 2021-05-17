@@ -6,7 +6,7 @@ class Image extends \MyApp\Model {
 
   // テンポラリーからDBにファイルパスを保存//
   public function insertImages($fileTmpPath,$imgType){  
-    $storeDir=__DIR__ . '/img/';
+    $storeDir=__DIR__ . '/../public/img';
     $fileName=$this->nameDecision($imgType);
     $filePath=$storeDir.$fileName;
 

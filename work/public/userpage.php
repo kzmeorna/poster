@@ -65,7 +65,7 @@ $app->run();
           <img class="header" data-tag="header" src=<?=$app->headerPath?> alt="ヘッダー">
           <img class="top" data-tag="top" src=<?=$app->topPath?> alt="prof">
         </div>
-        <form id="modal_form" method="post" action="_ajaxImg.php" enctype="multipart/form-data">
+        <form id="modal_form" method="post" action="" enctype="multipart/form-data">
           <p>
             <label>ヘッダー：</label>
             <input class="imageFile" type="file" name="header" accept="image/*">

@@ -6,7 +6,6 @@ $app=new \MyApp\Controller\Userpage();
 
 $app->run();
 
-
 ?>
 
 <!DOCTYPE html>

@@ -110,7 +110,7 @@ create table posts(
 
    ```
   
-  そしたらlocalhost:81にアクセスすることができます。
+  そしたらlocalhost:80にアクセスすることができます。
   
   サーバーを止めたいときは
   

@@ -14,11 +14,16 @@ body{
   /* background-color:blue; */
   width:35%;
   text-align:center;
+  margin-top:5%;
 }
 
 .center{
   /* background-color:red; */
   width:65%;
+}
+
+.postIcon{
+  border-radius:50%;
 }
 
 .left > img{
@@ -63,6 +68,18 @@ body{
   height:30%;
   line-height: 100%;
   font-size: 24px;
+  margin-bottom:0;
+  display:table;
+  background-color: #f06060;
+}
+
+.timeline-mode>.newPost{
+  color:white;
+  font-weight: bold;
+  display:table-cell;
+  padding-left:40px;
+  text-align: left;
+  vertical-align:middle;
 }
 
 .post_Text{

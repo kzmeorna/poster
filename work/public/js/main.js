@@ -249,6 +249,7 @@ $(function() {
   console.log(notChange);
   if(!notChange){
     $('.prof_refix').addClass('hidden_profrefix');
+    $('.delete').addClass('hidden_profrefix');
   }
   // 自分以外のユーザーがプロフ編集できなくする処理fin
 

@@ -28,6 +28,17 @@ $app->run();
             <span class="userid">@<?= $app->_userProf->userId ?></span>
           </p>
         </div>
+        <div class="user">
+          <p class="user-create">アカウント作成</p>
+        </div>
+        <div class="user">
+          <p class="user-login">ログイン</p>
+        </div>
+        <div class="user">
+          <a class="backtohome" href="guest.php">
+            戻る
+          </a>
+        </div>
         <p class="logout"><a href="logout.php">ログアウト</a></p>
       </div>
       <!-- left part fin -->

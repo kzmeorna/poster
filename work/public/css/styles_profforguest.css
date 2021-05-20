@@ -92,11 +92,55 @@ a{
   cursor:pointer;
 }
 
+.user{
+  margin:30px auto;
+  display:table;
+}
+
+.user:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.user-create{
+  color:white;
+  width:280px;
+  height:50px;
+  background-color: #f06060;
+  border-radius: 100vh;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+.backtohome{
+  color:#f06060;
+  width:280px;
+  height:50px;
+  border:solid 3px #f06060;
+  border-radius:100vh;
+  text-align: center;
+  vertical-align: middle;
+  display:table-cell;
+}
+
+.user-login{
+  color:#f06060;
+  width:280px;
+  height:50px;
+  border:solid 3px #f06060;
+  border-radius:100vh;
+  text-align: center;
+  vertical-align: middle;
+  display:table-cell;
+}
+
 .profile{
   /* background-color: lightcoral; */
   display:flex;
   height: 50px;
   padding:0;
+  margin-top: 20px;
+  margin-left:100px;
 }
 
 .profile > p{

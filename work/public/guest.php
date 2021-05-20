@@ -38,9 +38,11 @@ unset($_SESSION['userId']);
 
       <div class="center">
 
-        <p class="timeline-mode">
-           最新投稿
-        </p>
+        <div class="timeline-mode">
+          <p class="newPost">
+            投稿一覧
+          </p>
+        </div>
 
         <!-- tweet template -->
         <template class="template">

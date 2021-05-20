@@ -28,8 +28,7 @@ $(function() {
             text.replace(/\n/g,'<br>')+
             '</span>'+
             '<i class="far fa-heart"></i>'+         // class= done
-            '<span class="fav_count">'+favs[i]+'</span>'+  //favoriteNumber.length class=done
-            '<span class="delete">[x]</span>'
+            '<span class="fav_count">'+favs[i]+'</span>' //favoriteNumber.length class=done
           );
 
     $('.content'+'#posts').append(clone2);

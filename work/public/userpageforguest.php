@@ -13,20 +13,14 @@ $app->run();
   <head>
     <meta charset="utf-8">
     <title>profile</title>
-    <link rel="stylesheet" href="css/styles_prof.css">
+    <link rel="stylesheet" href="css/styles_profforguest.css">
     <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-      <!-- <div class="modal_bg"></div> -->
-      <!-- left part -->
+      <!-- left part start -->
       <div class="left">
         <img src="img/postIcon.png" alt="postIcon" class="postIcon">
-        <ul>
-          <li class="home"><a href="home.php">ホーム</a></li>
-          <li class="lirofile visited">プロフィール</li>
-        </ul>
-        <p class="doPost">投函する</p>
         <div class="profile">
           <img src=<?=$app->leftTopPath?> alt="プロフィール" class="my_profile" width="50px" height="50px">
           <p>
@@ -36,58 +30,10 @@ $app->run();
         </div>
         <p class="logout"><a href="logout.php">ログアウト</a></p>
       </div>
-
-      <!-- 記事投稿モーダルウィンドウstart -->
-      <div class="modalContent">
-        <div class="createPost">
-          <span class="close">×</span>
-          <form action="" method="post" class="modal_post">
-            <div class="postText">
-              <img src=<?= $app->topPath ?> alt="プロフィール" class="my_profile" width="50px" height="50px">
-              <textarea name="text" placeholder="いまどうしてる？" rows="6" cols="20" wrap="hard"></textarea>
-              <input type='hidden' name='email' value="<?= $_SESSION['me']  ?>">
-            </div>
-          </form>
-          <button class="post">
-            ツイートする
-          </button>
-        </div>
-      </div>
-      <!-- 記事投稿モーダルウィンドウfin -->
-
-      <!-- プロフ編集モーダルウインドウ -->
-      <div class="modal_content">
-        <div class="modal_header">
-          <span class="refix">プロフィールを編集</span>
-          <button class="save" form="modal_form">保存</button>
-        </div>
-        <div class="images">
-          <img class="header" data-tag="header" src=<?=$app->headerPath?> alt="ヘッダー">
-          <img class="top" data-tag="top" src=<?=$app->topPath?> alt="prof">
-        </div>
-        <form id="modal_form" method="post" action="" enctype="multipart/form-data">
-          <p>
-            <label>ヘッダー：</label>
-            <input class="imageFile" type="file" name="header" accept="image/*">
-          </p>
-          <p>
-            <label>トップ画：</label>
-            <input class="imageFile" type="file" name="top" accept="image/*">
-          </p>
-          <p>
-            <input type="text" class="name" name="name" placeholder="名前" value="<?= isset($app->_clickedUser)?$app->_clickedUser->name:$app->_userProf->name;?>">
-          </p>
-          <p>
-            <textarea class="selfIntroduction" name="selfIntroduction" placeholder="自己紹介"><?= isset($app->_clickedUser)?$app->_clickedUser->selfIntroduction:$app->_userProf->selfIntroduction; ?></textarea>
-          </p>
-          <input type="hidden" name="userNumber" value="">
-        </form>
-        <p class="close">閉じる</p>
-      </div>
-      <!-- プロフ編集モーダルウインドウ -->
+      <!-- left part fin -->
 
 
-      <!-- center part -->
+      <!-- center part start -->
       <div class="center">
         <div class="prof">
           <p class="header">
@@ -96,7 +42,7 @@ $app->run();
           <div class="prof_text">
             <p class="prof_image">
               <img src=<?=$app->topPath?> alt="トップ画" width="200px" height="200px" class="my_profile">
-              <!-- <span class="prof_refix modal_open">プロフィールを編集</span> -->
+              <span class="prof_refix"></span>
             </p>
             <div class="prof_container">
               <p class="user_name"><?= isset($app->_clickedUser)?$app->_clickedUser->name:$app->_userProf->name;?></p>
@@ -105,7 +51,6 @@ $app->run();
               <?= isset($app->_clickedUser)?$app->_clickedUser->selfIntroduction:$app->_userProf->selfIntroduction; ?>
               </p>
             </div>
-            <p class="prof_refix modal_open">プロフィールを編集</p>
           </div>
         </div>
 
@@ -183,11 +128,9 @@ $app->run();
       var favedTopPath=JSON.parse(favedTopPathJson);
       var favedPostNumJson=JSON.stringify(<?= $app->favedPostNum ?>,null,'\t');
       var favedPostNum=JSON.parse(favedPostNumJson);
-      var notChangeJson=JSON.stringify(<?= $app->notChangeJson ?>,null,'\t');
-      var notChange=JSON.parse(notChangeJson);
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main4.js"></script>
   </body>
 
 </html>

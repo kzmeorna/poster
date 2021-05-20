@@ -2,7 +2,7 @@
 
 namespace MyApp\Controller;
 
-class Home extends \MyApp\Controller{
+class Guest extends \MyApp\Controller{
   
   public $_postsTable;
   public $_favs;
@@ -10,13 +10,15 @@ class Home extends \MyApp\Controller{
   public $_userNumber;
   public $_userNumberJson;
   public $topPath;
-  public $_topImg;
+  public $_topImgJson;
   public $favedPostNum;
   public $guest;
+  public $guestJson;
 
   public function __construct(){
     $this->_topPath=new \stdClass();
     $this->guest=new \stdClass();
+    $_SESSION['me']='guest';
   }
 
   public function run(){
@@ -26,22 +28,10 @@ class Home extends \MyApp\Controller{
       exit;
     }
 
-    // ツイートの投稿 start
-    if($_SERVER['REQUEST_METHOD']==='POST'){
-      $this->postProcess();
-    }
-    // ツイートの投稿 fin
-
+    // tl取得start
     $res=$this->getTl();
-    $this->_userProf=$this->fetchProf();
-  
-    // userNumberの取得start
-    $this->_userNumber=$this->_userProf->userNumber;
-    $this->_userNumberJson=json_encode($this->_userNumber);
-
-
-
-    // userNumberの取得fin
+    $this->guestJson=json_encode($res);
+    // tl取得fin
 
     // tl上のツイートのいいね表示start
     $post=new \MyApp\Model\functionPost;
@@ -58,24 +48,13 @@ class Home extends \MyApp\Controller{
     $this->topPath=$img->fetchImages(typTop,$_SESSION['me']);
     // プロフ画像の取得fin
 
-    // test
-    // var_dump($tweet->duplicateFav());
-    // test
-
-    $this->_topImg=json_encode($img->getTopImg());
+    $this->_topImgJson=json_encode($img->getTopImg());
 
     // ユーザーごとのお気に入りのツイート番号の取得start
     $this->favedPostNum=json_encode($post->favKeep($_SESSION['me']));
     // ユーザーごとのお気に入りのツイート番号の取得fin
 
     
-    // //encode to json start
-    if(isset($res)){
-      $this->_json_array=json_encode($res,JSON_PRETTY_PRINT);
-    }else{
-      echo 'sorry';
-    }
-    // //encode to json fin
   }
 
   // タイムラインの取得 start

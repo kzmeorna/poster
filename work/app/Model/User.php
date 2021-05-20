@@ -4,10 +4,7 @@ namespace MyApp\Model;
 
 class User extends \MyApp\Model {
   public $_id;
-
-  // public function __construct(){
-  //   $this->_id= new \stdClass();
-  // }
+  public $guest;
 
   public function fetchUserNumber(){
     $stmt=$this->_db->prepare("select userNumber from users where email=:email");
@@ -60,12 +57,18 @@ class User extends \MyApp\Model {
   }
 
   public function fetchUserProf(){
-    $stmt=$this->_db->prepare("select * from users where userNumber=:number");
-    $stmt->bindValue(':number',$_SESSION['me']);
-    $stmt->execute();
-
-    return $stmt->fetch(\PDO::FETCH_OBJ);
-
+    if($_SESSION['me']!=='guest'){
+      $stmt=$this->_db->prepare("select * from users where userNumber=:number");
+      $stmt->bindValue(':number',$_SESSION['me']);
+      $stmt->execute();
+  
+      return $stmt->fetch(\PDO::FETCH_OBJ);
+    }else{
+      $this->guest=new \stdClass();
+      $this->guest->name='ゲスト';
+      $this->guest->userId='guest';
+      return $this->guest;
+    }
   }
 
   public function refixProf($_name,$_selfIntroduction){
@@ -120,6 +123,22 @@ class User extends \MyApp\Model {
 
     return $stmt->fetchAll(\PDO::FETCH_CLASS);
   }
-
   // userNumberからユーザーネームIDの抽出fin
+
+
+  // 自分以外のユーザーがプロフ編集できなくする処理start
+  public function judgmentId($userId){
+    // $res= ($_SESSION['userId']===$userId) || !isset($_SESSION['userId']) ? true:false;
+    // return $res;
+
+    if(!isset($_SESSION['userId'])){
+      return $res =true;
+    }elseif(($_SESSION['userId']===$userId)){
+      return $res=true;
+    }else{
+      return $res=false;
+    }
+    
+  }
+  // 自分以外のユーザーがプロフ編集できなくする処理fin
 }

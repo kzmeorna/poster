@@ -5,10 +5,6 @@
   $app=new \MyApp\Controller\Index();
   $app->run();
 
-  // $result=glob($_SERVER['DOCUMENT_ROOT']. '/*');
-  // print_r($result);
-  // var_dump($_SERVER['DOCUMENT_ROOT']);
-
 ?>
 
 
@@ -30,6 +26,11 @@
         </div>
         <div class="user">
           <p class="user-login">ログイン</p>
+        </div>
+        <div class="user">
+          <p class="guest-login">
+            ゲストでログインする
+          </p>
         </div>
       </div>
     </div>

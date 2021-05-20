@@ -67,6 +67,17 @@ body{
   display:table-cell;
 }
 
+.guest-login{
+  font-size: 12px;
+  text-decoration: underline;
+  color:#f06060;
+  width:280px;
+  height:10px;
+  text-align:center;
+  vertical-align:middle;
+  display:table-cell;
+}
+
 .signup,.login,.userinfo{
   /* background-color:black; */
   color:white;

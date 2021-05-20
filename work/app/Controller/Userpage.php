@@ -22,6 +22,8 @@ class Userpage extends \MyApp\Controller{
   public $favedTopPath;
   public $favedTopPathJson;
   public $favedPostNum;
+  public $notChange;
+  public $notChangeJson;
 
   public function run(){
     $post=new \MyApp\Model\functionPost();
@@ -58,13 +60,18 @@ class Userpage extends \MyApp\Controller{
       $this->_clickedUserJson=json_encode($this->_clickedUser);
     //encode to json fin
 
-    $this->_userProf=$this->fetchProf();
+    // ログインユーザー情報の取得start
+      $this->_userProf=$this->fetchProf();
+    // ログインユーザー情報の取得fin
 
-    // var_dump($this->_userProf);
+    // 自分以外のユーザーがプロフ編集できなくする処理start
+    $this->notChange=$user->judgmentId($this->_userProf->userId);
+    $this->notChangeJson=json_encode($this->notChange);
+    // 自分以外のユーザーがプロフ編集できなくする処理fin
+    
 
     $allPosts=$post->readingAllPosts();
     $personalPosts=$user->getPosts();
-    // var_dump($personalTweets);
 
     if(empty($personalPosts)){
       $favs=0;
@@ -148,19 +155,10 @@ class Userpage extends \MyApp\Controller{
     // ユーザーごとのお気に入りのツイート番号の取得start
     $this->favedPostNum=json_encode($post->favKeep($_SESSION['me']));
     // ユーザーごとのお気に入りのツイート番号の取得fin
-    
-
-    // $this->favs=$favs;
-    
-    
-    //refix prof fin
+  
 
   }
 
-
-
-
-  // tweets reading
   
 
 }

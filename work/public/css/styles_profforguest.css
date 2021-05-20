@@ -158,7 +158,8 @@ a{
 .prof_container{
   position:relative;
   width:300px;
-  height:150px;;
+  height:150px;
+  right:320px;
   top:80px;
 }
 
@@ -174,29 +175,26 @@ a{
 }
 
 .prof_refix{
-  display:block;
+  display:inline-block;
   position:relative;
-  top:80px;
+  top:-100px;
+  left:300px;
   width:300px;
   height:30px;
   line-height: 30px;
   padding:10px;
   text-align: center;
-  color:#f06060;
+  /* color:#f06060; */
   font-size:15px;
   font-weight:700;
-  border:1px solid #f06060;
+  /* border:1px solid #f06060; */
   border-radius:100vh;
 }
 
-.prof_refix:hover{
+/* .prof_refix:hover{
   cursor:pointer;
   background-color: #f0c0c0;
-}
-
-.hidden_profrefix{
-  display:none;
-}
+} */
 
 .prof_introduction{
   margin:0;

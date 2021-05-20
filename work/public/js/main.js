@@ -12,6 +12,12 @@ $(function() {
   });
   // ログイン画面の表示完成版fin
 
+  // ゲストユーザーログイン処理start
+  $('.guest-login').click(function(){
+    window.open('/../guest.php',"_blank");
+  });
+  // ゲストユーザーログイン処理fin
+
   //登録ボタンの処理start
   $('.button').click(function(){
     $('.button').parents().submit();
@@ -238,5 +244,12 @@ $(function() {
     $('.modal_bg').fadeOut();
   });
   // ツイート投稿モーダルウィンドウfin
+
+  // 自分以外のユーザーがプロフ編集できなくする処理start
+  console.log(notChange);
+  if(!notChange){
+    $('.prof_refix').addClass('hidden_profrefix');
+  }
+  // 自分以外のユーザーがプロフ編集できなくする処理fin
 
 });
